@@ -3,7 +3,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res.render('home', {
-        showTitle: 'Homepage'
+        showTitle: 'Homepage',
+        userAgent: req.headers['user-agent']
     });
 });
 

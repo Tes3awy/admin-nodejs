@@ -33,12 +33,14 @@ app.use(express.static(path.join(__dirname, './../public')));
 /* Middlewares */
 app.use(bodyParser.json());
 // Express Session
-app.use(session({
-  secret: sessionSecret.session.secret,
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 86400000 }
-}));
+app.use(
+  session({
+    secret: sessionSecret.session.secret,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 86400000 },
+  })
+);
 // Passport Init
 app.use(passport.initialize());
 app.use(passport.session());
@@ -55,6 +57,14 @@ app.engine(
     extname: '.hbs',
     layoutsDir: 'views/layouts/',
     partialsDir: 'views/partials/',
+    helpers: {
+      getCurrentYear() {
+        return new Date().getFullYear();
+      },
+      getPlatform() {
+        return getPlatform();
+      }
+    },
   })
 );
 app.set('view engine', 'hbs');
@@ -65,5 +75,5 @@ app.listen(port, () => {
 });
 
 module.exports = {
-    app
+  app
 };
