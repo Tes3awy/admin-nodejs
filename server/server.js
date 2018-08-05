@@ -25,6 +25,7 @@ const port = process.env.PORT || 3000;
 // Global Vars
 app.use((req, res, next) => {
   res.locals.user = req.user || null;
+  res.locals.ua = req.get('User-Agent');
   next();
 });
 

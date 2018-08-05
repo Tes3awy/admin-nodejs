@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand mr-auto mr-lg-0" href="#">Offcanvas navbar</a>
+        <a class="navbar-brand mr-auto mr-lg-0" href="/">Storybook</a>
         <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,14 +8,14 @@
         <div class="navbar-collapse offcanvas-collapse">
             <ul class="navbar-nav ml-auto">
                 {{#if user}}
-                    <li class="nav-item active">
+                    <li class="nav-item {{#if active.home}}active{{/if}}">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{#if active.dashboard}}active{{/if}}">
                         <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                    <li class="nav-item {{#if active.profile}}active{{/if}}">
+                        <a class="nav-link" href="/profile">Profile</a>
                     </li>
                 {{else}}
                     <li class="nav-item">
@@ -30,19 +30,15 @@
 </nav>
 
 <div class="nav-scroller bg-white shadow-sm">
-    <div class="container">
+    <div class="container px-0">
         <nav class="nav nav-underline">
-            <a class="nav-link active" href="/dashboard">Dashboard</a>
+            <a class="nav-link {{#if active.dashboard}}active{{/if}}" href="/dashboard">Dashboard</a>
             <a class="nav-link" href="#">
                 Friends
-                <span class="badge badge-pill bg-light align-text-bottom">27</span>
+                <span class="badge badge-pill badge-primary align-text-bottom">12</span>
             </a>
             <a class="nav-link" href="#">Explore</a>
             <a class="nav-link" href="#">Suggestions</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link" href="#">Link</a>
         </nav>
     </div>
 </div>
